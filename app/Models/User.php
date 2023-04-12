@@ -19,8 +19,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
-        'password',
+        'department_id',
+        'email'
     ];
 
     /**
@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function contacts()
+    {
+        return $this->hasMany(Employeecontacts::class);
+    }
+
 }
